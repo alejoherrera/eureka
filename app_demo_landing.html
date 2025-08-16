@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eureka - Innovación Tecnológica</title>
+    <meta name="description" content="Eureka - Propuesta tecnológica innovadora que transforma la manera de trabajar">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eureka': {
+                            50: '#fef7ff',
+                            100: '#fdeeff',
+                            200: '#fbd5ff',
+                            300: '#f7aaff',
+                            400: '#f070ff',
+                            500: '#e940ff',
+                            600: '#d118e6',
+                            700: '#b00dc3',
+                            800: '#9010a0',
+                            900: '#751580',
+                            950: '#4f0258'
+                        },
+                        'tech': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 1s ease-out',
+                        'slide-down': 'slideDown 1s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                        'gradient-shift': 'gradientShift 6s ease-in-out infinite',
+                        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite'
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(233, 64, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(233, 64, 255, 0.6); }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes bounceSubtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gradient-eureka {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 35%, #e940ff 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        
+        .gradient-tech {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-premium {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-premium:hover::before {
+            left: 100%;
+        }
+        
+        .card-premium:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #e940ff;
+        }
+        
+        .btn-eureka {
+            background: linear-gradient(135deg, #e940ff 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-eureka:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(233, 64, 255, 0.4);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(233, 64, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .floating-elements::before {
+            top: 10%;
+            left: 10%;
+            background: radial-gradient(circle, #e940ff, transparent);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-elements::after {
+            bottom: 10%;
+            right: 10%;
+            background: radial-gradient(circle, #0ea5e9, transparent);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(233, 64, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(233, 64, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+
+<body class="font-body bg-gray-50 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-eureka-500 to-tech-500 rounded-xl flex items-center justify-center animate-pulse-glow">
+                        <span class="text-white font-bold text-lg">E</span>
+                    </div>
+                    <span class="font-display font-bold text-xl text-gray-800">Eureka</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#demo" class="text-gray-600 hover:text-eureka-500 font-medium transition-colors">Demo</a>
+                    <a href="#recursos" class="text-gray-600 hover:text-eureka-500 font-medium transition-colors">Recursos</a>
+                    <a href="#contacto" class="text-gray-600 hover:text-eureka-500 font-medium transition-colors">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center gradient-eureka text-white overflow-hidden">
+        <div class="floating-elements"></div>
+        <div class="hero-pattern absolute inset-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <!-- Logo Icon -->
+                <div class="mb-8 animate-slide-down">
+                    <div class="inline-flex items-center justify-center w-24 h-24 glass-morphism rounded-3xl mb-6">
+                        <svg class="w-12 h-12 text-white animate-bounce-subtle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in leading-none">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-blue-100">
+                        EUREKA
+                    </span>
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="text-2xl md:text-3xl lg:text-4xl font-light mb-4 animate-slide-up opacity-90 leading-relaxed">
+                    El momento de <span class="font-semibold text-yellow-300">inspiración</span> que
+                </p>
+                <p class="text-2xl md:text-3xl lg:text-4xl font-light mb-12 animate-slide-up opacity-90 leading-relaxed">
+                    transforma <span class="font-semibold text-blue-300">ideas</span> en <span class="font-semibold text-green-300">realidad</span>
+                </p>
+
+                <!-- Description -->
+                <div class="max-w-3xl mx-auto mb-12 animate-slide-up" style="animation-delay: 0.2s;">
+                    <p class="text-xl md:text-2xl font-light opacity-90 leading-relaxed">
+                        Una propuesta tecnológica revolucionaria que redefine los límites de la innovación,
+                        combinando inteligencia artificial, diseño centrado en el usuario y arquitectura escalable.
+                    </p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style="animation-delay: 0.4s;">
+                    <a href="#demo" class="btn-eureka text-white font-semibold px-10 py-4 rounded-2xl text-lg shadow-2xl hover:shadow-eureka-500/25 transition-all duration-300">
+                        <span class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h1.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Explorar Demo
+                        </span>
+                    </a>
+                    <a href="#recursos" class="glass-morphism text-white font-semibold px-10 py-4 rounded-2xl text-lg hover:bg-white/20 transition-all duration-300">
+                        <span class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Ver Recursos
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-slide-up" style="animation-delay: 0.6s;">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold stat-counter mb-2">99.9%</div>
+                        <div class="text-sm opacity-80 uppercase tracking-wider">Uptime</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold stat-counter mb-2">< 100ms</div>
+                        <div class="text-sm opacity-80 uppercase tracking-wider">Latencia</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold stat-counter mb-2">10M+</div>
+                        <div class="text-sm opacity-80 uppercase tracking-wider">Transacciones</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold stat-counter mb-2">24/7</div>
+                        <div class="text-sm opacity-80 uppercase tracking-wider">Soporte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Demo Resources Section -->
+    <section id="recursos" class="py-24 tech-grid relative">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <h2 class="font-display font-bold text-5xl md:text-6xl text-gray-800 mb-6">
+                    Recursos de <span class="bg-clip-text text-transparent bg-gradient-to-r from-eureka-500 to-tech-500">Demostración</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Explora nuestra propuesta tecnológica a través de estos recursos cuidadosamente preparados
+                    para brindarte una visión completa de las capacidades de Eureka.
+                </p>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-8xl mx-auto">
+                
+                <!-- Video Demo -->
+                <div class="card-premium rounded-3xl p-8 text-center group">
+                    <div class="mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-500 via-pink-500 to-red-600 rounded-3xl flex items-center justify-center mx-auto shadow-2xl group-hover:shadow-red-500/25 transition-all duration-300">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h1.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">Demo en Vivo</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Experimenta Eureka en acción con una demostración interactiva de 8 minutos que 
+                        muestra todas las funcionalidades clave y casos de uso reales.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Interfaz de usuario completa
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Casos de uso reales
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Análisis de performance
+                        </div>
+                    </div>
+                    <button onclick="openVideo()" class="w-full bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold py-4 rounded-2xl hover:from-red-600 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8 5v10l8-5z"></path>
+                            </svg>
+                            Ver Demostración
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Presentation -->
+                <div class="card-premium rounded-3xl p-8 text-center group">
+                    <div class="mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto shadow-2xl group-hover:shadow-blue-500/25 transition-all duration-300">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2M7 4h10M7 4l-2 16h14L17 4M9 9v8M15 9v8"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">Pitch Deck</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Presentación ejecutiva con la visión estratégica, arquitectura técnica, 
+                        modelo de negocio y roadmap de desarrollo de Eureka.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            45 slides profesionales
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Análisis de mercado
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Proyecciones financieras
+                        </div>
+                    </div>
+                    <button onclick="openPresentation()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-4 rounded-2xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Abrir Presentación
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Technical Documentation -->
+                <div class="card-premium rounded-3xl p-8 text-center group">
+                    <div class="mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 rounded-3xl flex items-center justify-center mx-auto shadow-2xl group-hover:shadow-emerald-500/25 transition-all duration-300">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">Documentación Técnica</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Especificaciones técnicas completas, APIs, diagramas de arquitectura 
+                        y guías de integración para equipos de desarrollo.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Guías de implementación
+                        </div>
+                    </div>
+                    <button onclick="downloadPDF()" class="w-full bg-gradient-to-r from-emerald-500 to-cyan-600 text-white font-semibold py-4 rounded-2xl hover:from-emerald-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M4 7h16"></path>
+                            </svg>
+                            Descargar PDF
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Live Prototype -->
+                <div class="card-premium rounded-3xl p-8 text-center group">
+                    <div class="mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-500 rounded-3xl flex items-center justify-center mx-auto shadow-2xl group-hover:shadow-orange-500/25 transition-all duration-300">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">Prototipo Interactivo</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Experimenta Eureka de primera mano con nuestro prototipo funcional 
+                        desplegado en un entorno de testing completamente interactivo.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Funcionalidad completa
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Datos de prueba reales
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Acceso temporal 24h
+                        </div>
+                    </div>
+                    <button onclick="openApp()" class="w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold py-4 rounded-2xl hover:from-orange-600 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Acceder al Prototipo
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional Features -->
+            <div class="mt-20 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg text-gray-800 mb-2">Seguridad Enterprise</h4>
+                    <p class="text-gray-600 text-sm">Cifrado end-to-end y cumplimiento SOC2</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg text-gray-800 mb-2">Performance Optimizada</h4>
+                    <p class="text-gray-600 text-sm">Respuestas < 100ms y 99.9% uptime</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg text-gray-800 mb-2">UX Centrado en Usuario</h4>
+                    <p class="text-gray-600 text-sm">Diseño intuitivo basado en research</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-eureka-500 to-tech-500"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-6">
+                    Stack Tecnológico de <span class="text-eureka-400">Vanguardia</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Construido con las tecnologías más avanzadas para garantizar escalabilidad, 
+                    seguridad y performance excepcional.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-morphism rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">⚛️</div>
+                    <h4 class="font-semibold text-lg mb-2">Frontend</h4>
+                    <p class="text-gray-300 text-sm">React 18, TypeScript, Tailwind CSS</p>
+                </div>
+                <div class="glass-morphism rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h4 class="font-semibold text-lg mb-2">Backend</h4>
+                    <p class="text-gray-300 text-sm">Node.js, GraphQL, Microservicios</p>
+                </div>
+                <div class="glass-morphism rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">🗄️</div>
+                    <h4 class="font-semibold text-lg mb-2">Base de Datos</h4>
+                    <p class="text-gray-300 text-sm">PostgreSQL, Redis, MongoDB</p>
+                </div>
+                <div class="glass-morphism rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">☁️</div>
+                    <h4 class="font-semibold text-lg mb-2">Infraestructura</h4>
+                    <p class="text-gray-300 text-sm">AWS, Kubernetes, Docker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-2xl p-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-eureka-100 to-transparent rounded-full transform translate-x-32 -translate-y-32"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="text-center mb-12">
+                            <h2 class="font-display font-bold text-4xl md:text-5xl text-gray-800 mb-6">
+                                ¿Listo para <span class="text-eureka-500">Innovar</span>?
+                            </h2>
+                            <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                                Nuestro equipo de expertos está preparado para discutir cómo Eureka puede 
+                                transformar tu organización y llevar tus proyectos al siguiente nivel.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8 mb-12">
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-eureka-100 rounded-xl flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-eureka-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Email Directo</h4>
+                                        <p class="text-gray-600">contacto@eureka-tech.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-tech-100 rounded-xl flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-tech-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">WhatsApp Business</h4>
+                                        <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">LinkedIn</h4>
+                                        <p class="text-gray-600">@eureka-technology</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-gray-800 mb-4">Horarios de Atención</h4>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span>Lunes - Viernes</span>
+                                        <span>9:00 AM - 6:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Sábados</span>
+                                        <span>10:00 AM - 2:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Soporte 24/7</span>
+                                        <span class="text-green-500 font-medium">Disponible</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="mailto:contacto@eureka-tech.com" class="btn-eureka text-white font-semibold px-8 py-4 rounded-2xl text-center hover:shadow-2xl transition-all duration-300">
+                                <span class="flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Contactar Ahora
+                                </span>
+                            </a>
+                            <a href="https://calendly.com/eureka-demo" class="glass-morphism border border-eureka-200 text-eureka-700 font-semibold px-8 py-4 rounded-2xl text-center hover:bg-eureka-50 transition-all duration-300">
+                                <span class="flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Agendar Demo
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-eureka-500 to-tech-500 rounded-2xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">E</span>
+                        </div>
+                        <span class="font-display font-bold text-2xl">Eureka</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6 max-w-md">
+                        Transformando ideas innovadoras en soluciones tecnológicas que impulsan el futuro. 
+                        Eureka representa el momento de inspiración que cambia todo.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-eureka-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-eureka-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-eureka-500 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Producto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Características</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Precios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Integraciones</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Carreras</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Eureka Technology. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Resource functions - Replace with your actual URLs
+        function openVideo() {
+            window.open('https://youtu.be/dQw4w9WgXcQ', '_blank');
+        }
+
+        function openPresentation() {
+            window.open('https://docs.google.com/presentation/d/1ABC123/edit', '_blank');
+        }
+
+        function downloadPDF() {
+            window.open('./assets/eureka-technical-documentation.pdf', '_blank');
+        }
+
+        function openApp() {
+            window.open('https://eureka-demo.netlify.app', '_blank');
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            root010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Documentación API REST
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Diagramas de arquitectura
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 
